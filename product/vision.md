@@ -88,6 +88,64 @@ Transitions between civilizations are first-class historical subjects rather tha
 
 **Why did the baton move?**
 
+Something roughly like:
+SUMER
+Uruk → Early Dynastic
+c. 3500–2334 BCE
+
+[Spoke progress: 30%]
+
+THE CENTRAL QUESTION
+
+How did increasingly complex settlements produce
+the world's first urban political systems?
+
+APEX
+c. 2700 BCE
+
+WHY THIS SPOKE MATTERS
+
+Urbanism
+Writing
+Temple economy
+Specialized labor
+City-state government
+Organized warfare
+
+──────────────
+
+THE 10-MODULE JOURNEY
+
+01  Before Sumer
+    Ubaid → Uruk
+
+02  The Urban Revolution
+    How cities become possible
+
+03  Gods, Temples & Administration
+    Institutional power
+
+04  Inventing Information
+    Tokens → tablets → writing
+
+05  Producing the City
+    Agriculture, labor and specialization
+
+06  Networks of Wealth
+    Trade and material flows
+
+07  City Against City
+    Warfare and competing states
+
+08  The Sumerian Political World
+    Kingship, legitimacy and society
+
+09  Sumer at its Apex
+    What the system accomplished
+
+10  When City-States Meet Empire
+    Sumer → Akkad
+
 The long-term experience should allow learners to compare civilizations across recurring dimensions such as:
 
 * geography
@@ -160,6 +218,65 @@ A learner should leave able to:
 The first complete curriculum is Ancient Mesopotamia.
 
 It will establish the content model, learning loop, visual grammar, evidence system, progress system, and study experience that subsequent civilization spokes reuse.
+
+MODULE
+
+Overview
+├── Central question
+├── Learning objectives
+├── Why it matters
+└── Estimated time
+
+Narrative
+├── Historical overview
+├── Timeline
+├── Key people
+├── Key places
+└── Key concepts
+
+Scholarship
+├── Reading 1
+├── Reading 2
+└── Optional deep dive
+
+Media
+├── Video / lecture
+└── Optional secondary video
+
+Visual Exploration
+├── Maps
+├── Cities / sites
+├── Artifacts
+├── Campaigns
+└── Reconstructions
+
+Systems
+├── Production
+├── Trade
+├── Wealth flow
+├── Institutions
+└── Military / political power
+
+Evidence Lab
+├── Source A
+├── Source B
+├── Source C
+└── Guided questions
+
+Analysis
+├── Historical prompt
+├── Learner argument
+└── AI reviewer
+
+Study Guide
+├── Timeline
+├── Terms
+├── People
+├── Places
+├── Evidence
+├── Major claims
+├── Historiographical questions
+└── Review questions
 
 Version 0.1 should prove one thing:
 
