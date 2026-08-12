@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { competencies, curriculumModules } from "../lib/curriculum";
 import { moduleOne } from "../content/mesopotamia/module-01";
+import type { EvidenceObject, SourceRecord } from "../content/types";
+import { assertPublishableEvidence, learnerVisibleContent } from "../lib/publication";
 
 describe("initial curriculum", () => {
   it("defines all 18 competency spokes", () => {
@@ -21,5 +23,33 @@ describe("initial curriculum", () => {
     expect(moduleOne.timeline).toHaveLength(5);
     expect(moduleOne.evidence.label).toMatch(/not source objects/i);
     expect(moduleOne.exercise).toMatchObject({ minWords: 300, maxWords: 600 });
+  });
+
+  it("excludes draft content and content backed by unchecked candidate sources", () => {
+    const checkedSource: SourceRecord = {
+      id: "checked-source", state: "source-checked", title: "Checked resource",
+      creator: "Example institution", resourceType: "catalogue",
+      url: "https://example.test/catalogue", learnerPurpose: "Inspect the catalogue record.",
+      expectedTimeMinutes: 10, accessStatus: "open", verificationDate: "2026-08-12",
+    };
+    const candidateSource: SourceRecord = { ...checkedSource, id: "candidate", state: "candidate", verificationDate: null };
+    const evidence = (id: string, reviewState: EvidenceObject["reviewState"], sourceIds: string[]): EvidenceObject => ({
+      id, reviewState, title: id, description: "Test description", observation: "Test observation",
+      interpretations: ["Test interpretation"], sourceIds, locator: "catalogue-1",
+    });
+    const visible = learnerVisibleContent(
+      [evidence("draft", "draft", [checkedSource.id]), evidence("candidate-backed", "source-checked", [candidateSource.id]), evidence("checked", "source-checked", [checkedSource.id])],
+      [checkedSource, candidateSource], (item) => item.sourceIds,
+    );
+    expect(visible.map(({ id }) => id)).toEqual(["checked"]);
+  });
+
+  it("rejects historically reviewed evidence without a source and locator", () => {
+    const invalid: EvidenceObject = {
+      id: "missing-source", reviewState: "historically-reviewed", title: "Invalid evidence",
+      description: "Test description", observation: "Test observation",
+      interpretations: ["Test interpretation"], sourceIds: [], locator: "",
+    };
+    expect(() => assertPublishableEvidence(invalid, [])).toThrow(/requires a source and locator/i);
   });
 });

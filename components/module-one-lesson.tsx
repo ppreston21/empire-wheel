@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { moduleOne } from "@/content/mesopotamia/module-01";
 import { countWords, createMockReview, type MockReview } from "@/lib/module-review";
 import { markModuleOneComplete, readModuleOneComplete } from "@/lib/progress";
+import { learnerVisibleContent } from "@/lib/publication";
 
 const sectionLabel = "text-xs font-bold uppercase tracking-[.2em] text-[#b28d4c]";
 
@@ -14,6 +15,7 @@ export function ModuleOneLesson() {
   const [attempted, setAttempted] = useState(false);
   const words = countWords(response);
   const valid = words >= moduleOne.exercise.minWords && words <= moduleOne.exercise.maxWords;
+  const publishedEvidence = learnerVisibleContent(moduleOne.evidenceObjects, moduleOne.sourceLedger, (item) => item.sourceIds);
 
   useEffect(() => setComplete(readModuleOneComplete()), []);
 
@@ -65,6 +67,7 @@ export function ModuleOneLesson() {
           <ul className="mt-7 grid gap-2 text-sm text-stone-400 sm:grid-cols-2">
             {moduleOne.evidence.items.map((item) => <li key={item}>◇ {item}</li>)}
           </ul>
+          {publishedEvidence.map((item) => <article key={item.id} className="mt-7 border-t border-white/10 pt-6"><h3 className="font-serif text-xl text-stone-200">{item.title}</h3><p className="mt-2 text-sm leading-6 text-stone-400">{item.description}</p></article>)}
         </div>
       </section>
 

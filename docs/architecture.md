@@ -23,10 +23,15 @@ clearly identified as mocked and is generated locally; no AI service is called.
 ## Content lifecycle
 
 Module briefs and source-acquisition notes live under `product/spokes/`. They are
-planning artifacts, not learner content. Runtime content in `content/` must carry
-a review state when the typed content model introduced by EW-016 lands. Only
+planning artifacts, not learner content. Runtime content in `content/` carries
+a review state through the typed content model introduced by EW-016. Only
 source-checked, historically reviewed material may be presented as published
 evidence; unchecked candidates remain in planning documents.
+
+`content/types.ts` defines source metadata and review states. Learner-facing
+collections pass through `lib/publication.ts`, which fails closed for drafts,
+missing source records, and candidate sources. Historically reviewed evidence
+is also required to name at least one checked source and a stable locator.
 
 The current Module 1 content predates that lifecycle and is explicitly labeled
 as an editorial draft. Do not expand its React component with additional

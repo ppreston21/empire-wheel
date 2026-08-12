@@ -6,18 +6,18 @@ requirements use `R-*`; delivery tickets use `EW-*`.
 
 ## Now — make Sumer Module 1 credible
 
-### EW-016 — Source ledger and publication states
+### EW-016 — Source ledger and publication states ✅
 
 **Why:** Module 1 cannot grow safely while draft claims and reviewed evidence
 share one undifferentiated content model.
 
 **Acceptance criteria**
 
-- [ ] Typed source records implement the metadata in R-004.
-- [ ] Content objects carry `draft`, `source-checked`, or
+- [x] Typed source records implement the metadata in R-004.
+- [x] Content objects carry `draft`, `source-checked`, or
       `historically-reviewed` state.
-- [ ] Learner routes exclude unchecked candidates by default.
-- [ ] Tests reject a publishable evidence object without source and locator.
+- [x] Learner routes exclude unchecked candidates by default.
+- [x] Tests reject a publishable evidence object without source and locator.
 
 ### EW-017 — Curate the Module 1 reading and media set
 
