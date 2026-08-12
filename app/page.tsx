@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CompetencyWheel } from "@/components/competency-wheel";
+import { ProgressSummary } from "@/components/progress-summary";
 
 export default function Home() {
   return (
@@ -15,14 +16,7 @@ export default function Home() {
         </section>
         <section className="px-5 pt-8"><CompetencyWheel /></section>
       </div>
-      <section aria-label="Learning progress" className="mt-20 grid border-y border-white/10 md:grid-cols-3">
-        {[["Overall progress", "0%"], ["Mesopotamia progress", "0%"], ["Modules completed", "0 / 10"]].map(([label, value]) => (
-          <div key={label} className="border-b border-white/10 px-7 py-7 last:border-0 md:border-b-0 md:border-r md:last:border-r-0">
-            <p className="text-xs uppercase tracking-[.16em] text-stone-500">{label}</p>
-            <p className="mt-2 font-serif text-3xl text-stone-200">{value}</p>
-          </div>
-        ))}
-      </section>
+      <ProgressSummary />
       <p className="mt-5 text-xs text-stone-600">The remaining seventeen fields are locked for this initial release.</p>
     </main>
   );
