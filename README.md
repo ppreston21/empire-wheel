@@ -1,6 +1,6 @@
 # Empire Wheel
 
-Empire Wheel is a structured humanities learning tool. This repository contains the v0.1 application shell: a competency dashboard, the Ancient Mesopotamia curriculum, and the placeholder for its first module.
+Empire Wheel is a structured humanities learning tool. This repository contains the v0.1 application shell and the emerging Sumer curriculum. Module 1 is an explicitly labeled curriculum draft while its scholarship and evidence are curated and historically reviewed.
 
 ## Local setup
 
@@ -19,8 +19,8 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000). The main routes are:
 
 - `/` — competency overview
-- `/mesopotamia` — ten-module curriculum
-- `/mesopotamia/module-1` — Module 1 placeholder
+- `/mesopotamia` — ten-module Sumer curriculum (route name retained for now)
+- `/mesopotamia/module-1` — draft Module 1 experience
 
 ## Quality checks
 
@@ -35,6 +35,7 @@ npm run build
 ```text
 app/                  Next.js App Router pages and global styles
 components/           Shared interface components
+content/              Typed historical curriculum content
 lib/                  Typed curriculum and competency data
 tests/                Unit tests for important application data
 product/              Product vision and requirements

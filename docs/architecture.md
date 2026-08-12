@@ -19,3 +19,15 @@ There is no server-side persistence or external service integration. When intera
 
 Module 1 progress is a single browser-local completion flag. Reviewer output is
 clearly identified as mocked and is generated locally; no AI service is called.
+
+## Content lifecycle
+
+Module briefs and source-acquisition notes live under `product/spokes/`. They are
+planning artifacts, not learner content. Runtime content in `content/` must carry
+a review state when the typed content model introduced by EW-016 lands. Only
+source-checked, historically reviewed material may be presented as published
+evidence; unchecked candidates remain in planning documents.
+
+The current Module 1 content predates that lifecycle and is explicitly labeled
+as an editorial draft. Do not expand its React component with additional
+hardcoded prose while the content schema is being revised.

@@ -1,84 +1,125 @@
-requirements.md
+# Empire Wheel product requirements
 
-1. Product invariants
-   1.1 Historical integrity
-   1.2 Evidence vs interpretation
-   1.3 Curriculum/presentation separation
-   1.4 External-source rules
+This document defines testable product behavior. The vision explains **why**;
+the backlog sequences **when**; module briefs define **what is taught**.
 
-2. Information architecture
-   2.1 Empire Wheel
-   2.2 Civilization Spoke
-   2.3 Module
-   2.4 Handoff
-   2.5 Study Guide
+## 1. Product invariants
 
-3. Civilization Spoke
-   3.1 Overview
-   3.2 Timeline
-   3.3 Ten-module curriculum
-   3.4 Progress
-   3.5 Hegemonic thesis
-   3.6 Previous/next handoff
+### R-001 — Historical integrity
 
-4. Module Experience
-   4.1 Orient
-   4.2 Learn
-   4.3 Read
-   4.4 Watch
-   4.5 See
-   4.6 Explore
-   4.7 Examine
-   4.8 Argue
-   4.9 Review
-   4.10 Study
+- Every published historical claim must be traceable to a reviewed source.
+- The product must never invent quotations, translations, object identifiers,
+  dates, scholars, or bibliography.
+- Unverified material must be visibly labeled `draft`, `candidate`, or
+  `placeholder` and must not be presented as evidence.
 
-5. Content Objects
-   5.1 Narrative
-   5.2 External Reading
-   5.3 Video
-   5.4 Evidence Object
-   5.5 Map
-   5.6 Timeline
-   5.7 Image
-   5.8 Wealth Flow Model
-   5.9 Exercise
-   5.10 Study Item
+### R-002 — Evidence is not interpretation
 
-6. Evidence System
-   6.1 Archaeological site
-   6.2 Artifact
-   6.3 Text / inscription
-   6.4 Dataset
-   6.5 Map
-   6.6 Scholarship
-   6.7 Citation metadata
-   6.8 Evidence/inference labeling
+Every evidence object must separately state (a) what the object or record is,
+(b) what can be directly observed, (c) a source and stable locator, and (d) one
+or more interpretations. Uncertainty and disagreement must remain visible.
 
-7. Visual Systems
-   7.1 Historical maps
-   7.2 Settlement visualization
-   7.3 Campaign visualization
-   7.4 Trade visualization
-   7.5 Production/wealth flow
-   7.6 Institutional power
+### R-003 — Curriculum is separate from presentation
 
-8. Assessment
-   8.1 Analysis exercises
-   8.2 Submission requirements
-   8.3 AI reviewer
-   8.4 Knowledge checks
-   8.5 Module mastery
+Historical prose, citations, learning objectives, and exercises live in typed
+content files. React components render those objects and must not become the
+canonical source of curriculum content.
 
-9. Progress
-   9.1 Activity completion
-   9.2 Module completion
-   9.3 Spoke completion
-   9.4 Wheel visualization
+### R-004 — External resources
 
-10. Mesopotamia v0.1
-    10.1 Curriculum map
-    10.2 Module 1 complete
-    10.3 Modules 2–10 placeholders
+An external resource requires a title, creator or institution, resource type,
+URL, learner purpose, expected time, access status, and verification date.
+Candidates with unchecked links may appear in research notes, but not in the
+learner experience.
 
-11. Out of Scope
+## 2. Information architecture
+
+The hierarchy is **Wheel → Spoke → Module → Activity → Study item**. A handoff
+connects adjacent spokes and is taught as history, not used as empty navigation.
+
+### R-010 — Wheel
+
+The wheel exposes nineteen chronological spokes, identifies the active spoke,
+and communicates progress without implying that only one society mattered at a
+given time.
+
+### R-011 — Spoke
+
+A spoke contains a central question, chronological and geographic scope,
+hegemonic thesis, inheritance, handoff, ten named modules, and progress.
+
+### R-012 — Module
+
+A complete module is a 2–5 hour guided experience using the sequence **Orient →
+Learn → Read → See/Watch → Explore → Examine → Argue → Review → Study**. A mode
+may be omitted only when the module brief explains why.
+
+## 3. Module content and experience
+
+### R-020 — Orient and learn
+
+The opening states a central question, 3–5 assessable objectives, period,
+places, estimated time, relevance to the spoke, and a concise sourced narrative.
+
+### R-021 — Read, watch, and see
+
+Resources explain why they were selected and what the learner should notice.
+Images include rights/credit metadata and meaningful alternative text. Video
+includes creator, duration, and a non-video fallback.
+
+### R-022 — Explore
+
+Maps and system models distinguish known data, reconstruction, and uncertainty;
+they include a legend, source note, and an explicit inquiry task.
+
+### R-023 — Examine
+
+An evidence lab contains at least three reviewed evidence objects of more than
+one type. Guided questions move from observation to contextualization and then
+interpretation without revealing a preferred answer first.
+
+### R-024 — Argue and review
+
+The learner makes a claim using named evidence and acknowledges a limitation or
+counterinterpretation. Feedback evaluates historical accuracy, evidence use,
+reasoning, and inference. Mock or automated feedback is labeled clearly.
+
+### R-025 — Study
+
+The module produces a persistent guide containing chronology, terms, people,
+places, evidence, major claims, debates, and review questions.
+
+## 4. Content objects
+
+Typed content must support narrative sections, external resources, media,
+evidence objects, maps, timelines, images, system models, exercises, and study
+items. Each publishable object carries a review state: `draft`, `source-checked`,
+or `historically-reviewed`.
+
+## 5. Progress and mastery
+
+- Activity completion is browser-local for v0.1 and must be described as such.
+- Module completion requires the core evidence activity and argument, not merely
+  scrolling or opening a page.
+- Spoke and wheel progress derive from module completion.
+- Completing a module means the learner can answer its objectives; completion
+  and mastery are related but not synonymous.
+
+## 6. Sumer v0.1 release gate
+
+The release includes the named ten-module Sumer curriculum, a complete and
+historically reviewed Module 1, and clearly labeled previews for Modules 2–10.
+Module 1 is releasable only when:
+
+1. every learner-facing historical claim has a source record;
+2. external links and access have been checked;
+3. at least three evidence objects and one visual geography activity pass
+   historical review;
+4. the full learning loop and study guide are present;
+5. tests, lint, build, accessibility review, and a visual review pass.
+
+## 7. Out of scope for v0.1
+
+Authentication, payments, databases, server persistence, live AI services,
+queues, microservices, social features, and full curricula for Spokes 2–19 are
+out of scope unless a later requirement explicitly adds them.

@@ -1,5 +1,15 @@
 # Empire Wheel Vision
 
+## How to use this document
+
+This is the durable statement of product purpose and learning philosophy. It is
+not a specification or delivery plan: testable behavior belongs in
+`product/requirements.md`, ordered work in `product/backlog.md`, and module
+learning design in `product/spokes/`.
+
+**Current product focus:** prove the complete learning loop with Spoke 1, Sumer,
+beginning with Module 1, *Before Sumer: Ubaid to Uruk*.
+
 ## Product Thesis
 
 Empire Wheel is an interactive learning platform for understanding how civilizations acquire, organize, exercise, and transfer power.
@@ -213,9 +223,11 @@ A learner should leave able to:
 * identify uncertainty in that argument, and
 * explain how the module contributes to the larger hegemonic transition represented by the Empire Wheel.
 
-## Initial Product
+## Initial release
 
-The first complete curriculum is Ancient Mesopotamia.
+The first complete curriculum is **Sumer**, the first of several Mesopotamian
+spokes. “Mesopotamia” remains a useful geographic label, but is not itself one
+of the nineteen hegemonic spokes.
 
 It will establish the content model, learning loop, visual grammar, evidence system, progress system, and study experience that subsequent civilization spokes reuse.
 
@@ -295,7 +307,7 @@ Comparison reveals the system.
 Argument demonstrates understanding.
 
 
-# The Empire Wheel
+## The nineteen-spoke curriculum
 
 Empire Wheel follows nineteen successive centers of hegemonic power from the emergence of the first cities to the modern world.
 
@@ -644,4 +656,3 @@ Across all nineteen spokes, Empire Wheel returns to the same fundamental questio
 And finally:
 
 **Why does the baton move?**
-
