@@ -12,42 +12,22 @@
 
 ## Forthcoming
 
--EW-016 — Establish multimodal module schema
+So tonight might be:
 
-Upgrade Module 1's content model so one module can contain narrative, reading, video, evidence, images, maps, models, exercises and study materials.
+Module 1 currently lacks meaningful scholarship.
 
-EW-017 — Build Reading Pack
+Then:
 
-External-resource cards with author, title, type, description, expected reading time, link and optional citation metadata.
+EW-016 Reading resource schema
+EW-017 Reading resource component
+EW-018 Populate Ubaid/Uruk readings
 
-EW-018 — Build Media Experience
+Done.
 
-Embedded video block with title, creator, duration, context and "why you're watching this."
+Next iteration:
 
-EW-019 — Replace Primary Source with Evidence Lab
+Module 1 needs visual geography.
 
-Support artifact/site/text/map/dataset/scholarship evidence objects.
-
-EW-020 — Build Visual Explorer
-
-Reusable container for maps, settlement plans, campaign maps, reconstructions and annotated images.
-
-EW-021 — Build Power Flow
-
-Your first reusable economic-system visualization.
-
-For Ubaid/Uruk:
-
-irrigation → barley → surplus → storage → specialists → trade → prestige goods → temple administration
-
-EW-022 — Build Module Study Guide
-
-Key terms, chronology, places, evidence, arguments, debates, questions and learner notes.
-
-EW-023 — Rework Module Completion
-
-Completion becomes based on engagement across the module rather than merely submitting one textarea.
-
-EW-024 — Curate Module 1
-
-Now the research agent fills all those containers with real Ubaid/Uruk material.
+EW-019 Map experience model
+EW-020 Map component
+EW-021 Ubaid/Uruk settlement map
