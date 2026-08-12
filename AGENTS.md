@@ -18,28 +18,36 @@ Avoid premature abstraction.
 Do not add authentication, payments, databases, queues,
 microservices, or unrelated functionality unless explicitly requested.
 
-Product Director
-│
-├── Curriculum Architect
-│   └── defines what the learner should understand
-│
-├── Research Curator
-│   └── finds scholarship, evidence, media and citations
-│
-├── Learning Experience Designer
-│   └── converts material into Read / See / Explore / Examine / Argue
-│
-├── Requirements Agent
-│   └── turns the module design into acceptance criteria + EW tickets
-│
-├── Implementation Agent
-│   └── builds the feature
-│
-├── Historical Reviewer
-│   └── checks factual/evidentiary integrity
-│
-└── Product QA Agent
-    └── tests acceptance criteria, UX and regressions
+YOU / PRODUCT OWNER
+        │
+        ▼
+Civilization Architect
+Creates the 10-module structure for one spoke
+        │
+        ▼
+Module Architect
+Defines a 2–5 hour module
+        │
+        ├───────────────┐
+        ▼               ▼
+Research Agent      Media/Visual Agent
+scholarship         maps/video/images/data
+sources
+        │               │
+        └───────┬───────┘
+                ▼
+Experience Designer
+arranges Read / Watch / Explore / Evidence / Argue
+                │
+                ▼
+Requirements Agent
+creates EW tickets + acceptance criteria
+                │
+                ▼
+Codex Builder
+                │
+                ▼
+Historical QA + Product QA
 
 ## Product Priority
 
