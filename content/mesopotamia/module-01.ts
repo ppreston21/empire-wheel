@@ -1,4 +1,5 @@
 export type ModuleContent = {
+  reviewState: "draft" | "source-checked" | "historically-reviewed";
   number: number;
   title: string;
   period: string;
@@ -11,21 +12,22 @@ export type ModuleContent = {
 };
 
 export const moduleOne: ModuleContent = {
+  reviewState: "draft",
   number: 1,
-  title: "From Village to City",
+  title: "Before Sumer",
   period: "Ubaid → Uruk",
   learningObjectives: [
-    "Explain why southern Mesopotamian irrigation required coordination.",
-    "Understand the role of temples as administrative institutions.",
-    "Describe what distinguishes Uruk from earlier settlements.",
-    "Separate archaeological evidence from historical inference.",
+    "Locate southern Mesopotamia and describe the module's chronological limits.",
+    "Compare Ubaid patterns with evidence associated with Uruk's larger scale.",
+    "Use multiple forms of archaeological evidence to support a historical claim.",
+    "Separate direct observation from inference about coordination or control.",
   ],
   overview: [
-    "Across the Ubaid and Uruk periods, settlements in southern Mesopotamia grew in scale and became more internally specialized. Irrigated agriculture could produce surplus, but maintaining shared water systems also required sustained coordination.",
-    "Monumental buildings, standardized objects, administrative devices, and later accounting texts provide evidence of changing institutions. Historians use those remains to ask how temples, administrators, and specialized workers organized resources and people. The evidence supports interpretations of increasing coordination, but it does not by itself reveal a single, uncontested form of political control.",
+    "Editorial draft pending source review: the Ubaid-to-Uruk transition is used here to investigate changing scale in settlements, institutions, production, exchange, and information practices—not to tell a single-cause story about the invention of cities.",
+    "The completed lesson will place reviewed archaeological observations beside competing interpretations. Monumental buildings, standardized objects, or administrative media must not be treated by themselves as proof of a temple economy, centralized government, or coerced labor.",
   ],
   keyConcepts: [
-    "irrigation", "surplus", "specialization", "temple economy",
+    "irrigation", "surplus", "specialization", "temple economy (debated)",
     "urbanization", "administration", "writing/accounting",
   ],
   timeline: [
@@ -36,9 +38,9 @@ export const moduleOne: ModuleContent = {
     { date: "~3300 BCE", event: "Earliest proto-cuneiform administrative texts" },
   ],
   evidence: {
-    label: "Placeholder source-evidence summary",
-    notice: "Verified primary-source excerpts and artifact records are not yet available in this module. This provided summary is an evidence set for practicing interpretation; it is not a primary source or a citation.",
-    summary: "Archaeologists find increasing settlement size, monumental architecture, standardized material culture, administrative seals and tokens, and eventually proto-cuneiform accounting records.",
+    label: "Draft evidence categories · not source objects",
+    notice: "No reviewed evidence object is published in this module yet. The categories below are an acquisition checklist, not primary evidence or citations. Exact site, artifact, catalogue, chronology, rights, and scholarly context must be verified before publication.",
+    summary: "The evidence lab will test claims about changing scale using exact records selected from four candidate categories.",
     items: [
       "Increasing settlement size",
       "Monumental architecture",
@@ -48,7 +50,7 @@ export const moduleOne: ModuleContent = {
     ],
   },
   exercise: {
-    prompt: "What evidence supports the argument that increasing economic complexity required increasingly centralized administration?",
+    prompt: "Which combination of evidence best explains changing coordination between the Ubaid and Uruk periods? Use three named objects, distinguish observation from inference, and explain one important limitation or competing interpretation.",
     minWords: 300,
     maxWords: 600,
   },

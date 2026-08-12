@@ -10,15 +10,16 @@ describe("initial curriculum", () => {
   it("offers ten modules and only unlocks Module 1", () => {
     expect(curriculumModules).toHaveLength(10);
     expect(curriculumModules.filter((module) => module.status === "available")).toEqual([
-      expect.objectContaining({ number: 1, title: "From Village to City: Ubaid → Uruk" }),
+      expect.objectContaining({ number: 1, title: "Before Sumer: Ubaid → Uruk" }),
     ]);
   });
 
   it("provides the complete Module 1 content structure", () => {
     expect(moduleOne.learningObjectives).toHaveLength(4);
+    expect(moduleOne.reviewState).toBe("draft");
     expect(moduleOne.keyConcepts).toContain("writing/accounting");
     expect(moduleOne.timeline).toHaveLength(5);
-    expect(moduleOne.evidence.label).toMatch(/placeholder/i);
+    expect(moduleOne.evidence.label).toMatch(/not source objects/i);
     expect(moduleOne.exercise).toMatchObject({ minWords: 300, maxWords: 600 });
   });
 });

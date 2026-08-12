@@ -29,6 +29,7 @@ export function ModuleOneLesson() {
     <>
       <section id="objectives" className="border-t border-white/10 pt-10">
         <p className={sectionLabel}>01 · Learning objectives</p>
+        <p className="mt-4 border-l border-amber-700/60 pl-4 text-sm leading-6 text-amber-200/70">Curriculum status: {moduleOne.reviewState}. Historical content and evidence remain unpublished until source and historical review are complete.</p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {moduleOne.learningObjectives.map((objective) => <li key={objective} className="border border-white/10 bg-white/[.02] p-5 leading-7 text-stone-300">{objective}</li>)}
         </ul>
