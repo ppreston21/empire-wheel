@@ -1,5 +1,7 @@
+import type { EvidenceObject, ReviewState, SourceRecord } from "@/content/types";
+
 export type ModuleContent = {
-  reviewState: "draft" | "source-checked" | "historically-reviewed";
+  reviewState: ReviewState;
   number: number;
   title: string;
   period: string;
@@ -9,6 +11,8 @@ export type ModuleContent = {
   timeline: { date: string; event: string }[];
   evidence: { label: string; notice: string; summary: string; items: string[] };
   exercise: { prompt: string; minWords: number; maxWords: number };
+  sourceLedger: SourceRecord[];
+  evidenceObjects: EvidenceObject[];
 };
 
 export const moduleOne: ModuleContent = {
@@ -54,4 +58,8 @@ export const moduleOne: ModuleContent = {
     minWords: 300,
     maxWords: 600,
   },
+  // Verified records are added here by EW-017/EW-018. Unchecked candidates stay
+  // in product research notes and cannot enter the learner-facing collection.
+  sourceLedger: [],
+  evidenceObjects: [],
 };
