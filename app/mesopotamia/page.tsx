@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { curriculumModules } from "@/lib/curriculum";
+import { ProgressSummary } from "@/components/progress-summary";
 
 export default function MesopotamiaPage() {
   return (
@@ -9,7 +10,7 @@ export default function MesopotamiaPage() {
         <p className="text-xs font-bold uppercase tracking-[.25em] text-[#b28d4c]">Field 01 · Active curriculum</p>
         <h1 className="mt-4 font-serif text-5xl text-stone-100 md:text-6xl">Ancient Mesopotamia</h1>
         <p className="mt-5 max-w-2xl leading-7 text-stone-400">Develop a foundation for interpreting the societies of ancient Mesopotamia through scholarship, material evidence, and primary sources.</p>
-        <div className="mt-7 flex gap-7 text-xs uppercase tracking-[.15em] text-stone-500"><span>10 modules</span><span>0% complete</span></div>
+        <ProgressSummary compact />
       </div>
       <ol className="mt-8 space-y-3">
         {curriculumModules.map((module) => {

@@ -14,7 +14,7 @@ research and source analysis.
 
 ## Initial Product
 
-The first version focuses exclusively on Ancient Mesopotamia.
+The first live curriculum focuses exclusively on Ancient Mesopotamia.
 
 The user should be able to:
 
@@ -29,3 +29,7 @@ The user should be able to:
 ## Core Principle
 
 Stop consuming history. Learn to do history.
+
+Each module should teach learners how historians move from evidence to
+interpretation: identifying what survives, making a defensible claim,
+and distinguishing that claim from what the evidence directly shows.

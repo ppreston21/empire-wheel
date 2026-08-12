@@ -32,6 +32,11 @@ historical documents, scholars, or bibliographic information.
 
 Mock data must be explicitly labeled as mock data.
 
+Historical claims must come from provided or verified sources.
+Do not fabricate quotations, translations, artifact IDs, dates, or
+citations. If source verification is unavailable, use explicitly
+labeled placeholder content.
+
 ## Code
 
 Use TypeScript.

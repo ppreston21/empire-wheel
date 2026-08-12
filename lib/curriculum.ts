@@ -5,7 +5,7 @@ export type CurriculumModule = {
 };
 
 export const curriculumModules: CurriculumModule[] = [
-  { number: 1, title: "Sumer and the First Cities", status: "available" },
+  { number: 1, title: "From Village to City: Ubaid → Uruk", status: "available" },
   ...Array.from({ length: 9 }, (_, index) => ({
     number: index + 2,
     title: "Forthcoming module",
