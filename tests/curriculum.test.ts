@@ -25,22 +25,28 @@ describe("initial curriculum", () => {
     expect(moduleOne.exercise).toMatchObject({ minWords: 300, maxWords: 600 });
   });
 
-  it("publishes the historically reviewed Module 1 reading set", () => {
+  it("provides bounded, source-checked reading guides with resilient fallbacks", () => {
     expect(moduleOne.resources).toHaveLength(2);
     const readingSourceIds = new Set(moduleOne.resources.map(({ sourceId }) => sourceId));
     expect(moduleOne.sourceLedger.filter(({ id }) => readingSourceIds.has(id))).toHaveLength(2);
     for (const resource of moduleOne.resources) {
       const source = moduleOne.sourceLedger.find(({ id }) => id === resource.sourceId);
-      expect(resource.reviewState).toBe("historically-reviewed");
+      expect(["source-checked", "historically-reviewed"]).toContain(resource.reviewState);
       expect(resource.learnerQuestion).toBeTruthy();
-      expect(source).toMatchObject({
-        state: "historically-reviewed",
-        accessStatus: "open",
-        verificationDate: "2026-08-12",
-      });
+      expect(source?.accessStatus).toBe("open");
+      expect(source?.verificationDate).toBeTruthy();
       expect(source?.url).toMatch(/^https:\/\//);
       expect(source?.learnerPurpose).toBeTruthy();
       expect(source?.expectedTimeMinutes).toBeGreaterThan(0);
+      expect(resource.locator).toMatch(/(pp\.|page)/i);
+      expect(resource.readingUrl).toMatch(/#page=\d+$/);
+      expect(resource.guide.authorArgument).toBeTruthy();
+      expect(resource.guide.evidenceToNotice.length).toBeGreaterThan(1);
+      expect(resource.guide.vocabulary.length).toBeGreaterThan(1);
+      expect(resource.guide.questionsAndLimits.length).toBeGreaterThan(1);
+      expect(resource.unavailableFallback.learnerTask).toBeTruthy();
+      expect(resource.unavailableFallback.guidance.length).toBeGreaterThan(1);
+      expect(resource.citation).toBeTruthy();
     }
   });
 

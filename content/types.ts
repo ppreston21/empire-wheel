@@ -21,7 +21,20 @@ export type SourceRecord = {
 export type ExternalResource = ContentObject & {
   sourceId: string;
   citation: string;
+  locator: string;
+  readingUrl: string;
   learnerQuestion: string;
+  centralQuestionConnection: string;
+  guide: {
+    authorArgument: string;
+    evidenceToNotice: string[];
+    vocabulary: { term: string; context: string }[];
+    questionsAndLimits: string[];
+  };
+  unavailableFallback: {
+    learnerTask: string;
+    guidance: string[];
+  };
 };
 
 export type ContentObject = { id: string; reviewState: ReviewState };
