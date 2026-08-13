@@ -1,137 +1,89 @@
-# Empire Wheel contributor guide
+# Empire Wheel agent operating policy
 
-Before making changes, read:
+This file is the repository-wide entry point for human and autonomous
+contributors. Detailed role prompts, handoff contracts, and execution recipes
+live in [`agents/README.md`](agents/README.md).
 
-- product/vision.md
-- product/requirements.md
-- docs/architecture.md
+## Start every task
 
-For curriculum work, also read the relevant brief under `product/spokes/` and
-the active tickets in `product/backlog.md`.
+1. Read `product/vision.md`, `product/requirements.md`, and
+   `docs/architecture.md`.
+2. Read the active `EW-*` ticket in `product/backlog.md`.
+3. For curriculum or historical work, also read the applicable brief under
+   `product/spokes/` and the role guide(s) in `agents/`.
+4. Confirm the ticket has testable acceptance criteria and that required inputs
+   exist. If not, stop at the appropriate planning or research handoff rather
+   than inventing them.
+5. Check `git status` before editing. Do not overwrite unrelated work.
 
-## Document ownership
+## Authority and document ownership
 
-- `product/vision.md` — durable product purpose and curriculum thesis.
-- `product/requirements.md` — testable product invariants and release gates.
-- `product/backlog.md` — ordered delivery work and acceptance criteria.
-- `product/spokes/` — civilization and module learning designs.
-- `docs/architecture.md` — implementation boundaries and technical decisions.
+- `product/vision.md` owns durable purpose and curriculum thesis.
+- `product/requirements.md` owns testable invariants and release gates.
+- `product/backlog.md` owns ordered delivery work and acceptance criteria.
+- `product/spokes/` owns civilization and module learning designs.
+- `docs/architecture.md` owns implementation boundaries and decisions.
+- `agents/` owns role procedures, artifact contracts, and review handoffs.
 
-Do not turn the vision into a task list or the backlog into a second vision.
+Do not turn the vision into a task list, the backlog into a second vision, or a
+role guide into product requirements.
 
-## Development Principles
+## Autonomy model
 
-Prefer the simplest implementation that satisfies the product
-requirements.
+An orchestrator may delegate bounded tasks to specialized agents using the
+workflow in `agents/README.md`. Agents may work concurrently only when their
+write scopes do not overlap and their inputs are already approved. Each agent
+must:
 
-Do not introduce infrastructure unless it is required.
+- receive one role, one objective, explicit inputs, an allowed write scope, and
+  a definition of done;
+- inspect current repository state before editing and stay inside that scope;
+- return the handoff report defined in `agents/README.md`;
+- distinguish completed work, blocked work, and recommendations;
+- never approve its own historical accuracy or final product quality; and
+- never commit, merge, open a pull request, or mark a ticket complete unless the
+  orchestrator explicitly assigns that authority.
 
-Avoid premature abstraction.
+One contributor may perform multiple roles sequentially, but historical review
+and product QA remain separate decisions with fresh review passes.
 
-Do not add authentication, payments, databases, queues,
-microservices, or unrelated functionality unless explicitly requested.
+## Source integrity: non-negotiable
 
-PRODUCT OWNER
-        │
-        ▼
-Civilization Architect
-Creates the 10-module structure for one spoke
-        │
-        ▼
-Module Architect
-Defines a 2–5 hour module
-        │
-        ├───────────────┐
-        ▼               ▼
-Research Agent      Media/Visual Agent
-scholarship         maps/video/images/data
-sources
-        │               │
-        └───────┬───────┘
-                ▼
-Experience Designer
-arranges Read / Watch / Explore / Evidence / Argue
-                │
-                ▼
-Requirements Agent
-creates EW tickets + acceptance criteria
-                │
-                ▼
-Codex Builder
-                │
-                ▼
-Historical QA + Product QA
+- Never fabricate primary sources, quotations, translations, artifacts,
+  identifiers, dates, scholars, bibliography, rights statements, or links.
+- Historical claims must come from provided or verified sources. If verification
+  is unavailable, use clearly labeled placeholder content outside publishable
+  learner UI.
+- `candidate` means discovered but unchecked and is restricted to research
+  notes. `source-checked` means identity, locator, access, and metadata were
+  checked. `historically-reviewed` means claims and use were independently
+  reviewed in context and may be published.
+- Search snippets, generated summaries, and unsourced prose are not sources.
+- Record the verification date for web resources. Keep observation distinct
+  from interpretation and state uncertainty rather than smoothing it away.
 
-One person or agent may perform more than one role, but preserve the review
-boundaries. Research supplies sources; experience design turns them into
-learning; historical QA decides whether historical content is publishable.
+## Implementation rules
 
-## Required workflow
+- Prefer the simplest implementation satisfying the product requirements.
+- Use TypeScript and keep typed curriculum content separate from presentation.
+- Favor readable components and add tests for important logic.
+- Do not introduce authentication, payments, databases, queues, microservices,
+  or unrelated infrastructure unless a requirement explicitly requests it.
+- Do not commit generated dependencies, build output, screenshots, or local
+  environment files unless a ticket explicitly requires a tracked artifact.
+- Never expose unchecked candidates in learner-facing UI.
 
-1. Confirm the applicable module brief and active EW ticket.
-2. Research into a source ledger; keep unchecked candidates out of learner UI.
-3. Define the smallest coherent experience and acceptance criteria.
-4. Build with typed content separate from presentation.
-5. Run tests and lint. For perceptible UI work, run the app and capture a
-   screenshot at a representative desktop size (and mobile when responsive
-   behavior changes).
-6. Run historical QA for content and product QA for behavior and accessibility.
-7. Update ticket state only when every acceptance criterion passes.
+## Completion gates
 
-## Product Priority
+Before claiming completion:
 
-The user experience matters more than architectural sophistication.
+1. Map every acceptance criterion to evidence in the handoff report.
+2. Run the relevant tests, lint, and build.
+3. For perceptible UI work, run the app and capture a representative desktop
+   screenshot; also capture mobile when responsive behavior changes.
+4. Run accessibility and product QA. Run independent historical QA whenever
+   historical claims, evidence, maps, captions, or curriculum change.
+5. Update ticket state only when every criterion and applicable review passes.
 
-Empire Wheel should feel like a serious humanities research tool,
-not a generic AI chatbot.
-
-MODULE SPEC
-     ↓
-NEXT EXPERIENCE
-     ↓
-2–5 EW TICKETS
-     ↓
-BUILD
-     ↓
-SCREENSHOT / TEST
-     ↓
-REVIEW
-     ↓
-MERGE
-     ↓
-NEXT EXPERIENCE
-
-## Source Integrity
-
-Never fabricate primary sources, citations, translations,
-historical documents, scholars, or bibliographic information.
-
-Mock data must be explicitly labeled as mock data.
-
-Historical claims must come from provided or verified sources.
-Do not fabricate quotations, translations, artifact IDs, dates, or
-citations. If source verification is unavailable, use explicitly
-labeled placeholder content.
-
-### Source states
-
-- **candidate** — discovered but not yet checked; research notes only.
-- **source-checked** — identity, URL/locator, access, and metadata checked.
-- **historically-reviewed** — claims and use reviewed in context; publishable.
-
-Search snippets, generated summaries, and unsourced prose are not sources.
-Record the date a web resource was checked. Keep observation distinct from
-interpretation, and name uncertainty rather than smoothing it away.
-
-## Code
-
-Use TypeScript.
-
-Favor simple readable components.
-
-Add tests for important logic.
-
-Run tests and linting before declaring work complete.
-
-Do not commit generated dependencies, build output, screenshots, or local
-environment files unless a ticket explicitly requires a tracked artifact.
+If a gate cannot run, report the exact command, failure, and limitation. A
+partial result is a handoff, not a completed ticket.
