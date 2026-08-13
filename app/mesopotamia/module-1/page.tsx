@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ModuleOneLesson } from "@/components/module-one-lesson";
-import { moduleOne } from "@/content/mesopotamia/module-01";
+import { moduleOne } from "@/content/spokes/sumer/modules/module-01";
 
 const sections = [
   { id: "objectives", label: "Objectives" },

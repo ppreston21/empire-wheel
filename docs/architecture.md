@@ -6,9 +6,10 @@ Empire Wheel v0.1 is a single Next.js application using the App Router, TypeScri
 
 - `app/` owns routes, metadata, layouts, and global styling.
 - `components/` contains reusable presentation components such as the competency wheel.
-- `content/` contains typed curriculum content organized by field and module,
-  such as `content/mesopotamia/module-01.ts`. Historical prose and exercises
-  belong in content files, not hardcoded in React components.
+- `content/` contains typed curriculum content. Spoke-specific modules live at
+  `content/spokes/<spoke>/modules/`; shared module structures, research notes,
+  and source records have their own directories. Historical prose and
+  exercises belong in content files, not hardcoded in React components.
 - `lib/` contains framework-independent curriculum indexes, progress helpers,
   and deterministic mock-review logic.
 - `components/` may contain client-side lesson and progress interactions while
@@ -36,3 +37,10 @@ is also required to name at least one checked source and a stable locator.
 The current Module 1 content predates that lifecycle and is explicitly labeled
 as an editorial draft. Do not expand its React component with additional
 hardcoded prose while the content schema is being revised.
+
+## Contributor roles
+
+The role guides in `agents/` preserve review boundaries from research through
+implementation. They define handoffs and expected artifacts, but do not add
+runtime agents or infrastructure. One contributor may perform multiple roles;
+historical review must still remain a distinct publication decision.
