@@ -73,6 +73,33 @@ development and curriculum work.
 - [ ] Use stable collection/catalogue locators and rights metadata.
 - [ ] Revise the argument prompt to require named evidence and a limitation.
 
+### EW-018a — Turn the reading list into a guided reading experience
+
+**Why:** Sending learners to an entire book-length PDF makes the scholarship
+technically available but does not make the important argument readable or the
+activity resilient when an external document moves.
+
+**Depends on:** EW-018. The reading guide may introduce context, but it must not
+replace the named evidence or do the evidence-lab reasoning for the learner.
+
+**Acceptance criteria**
+
+- [ ] For each assigned reading, identify a historically reviewed excerpt or
+      chapter with exact page/section locators, a realistic reading time, and a
+      short explanation of how it bears on the module's central question.
+- [ ] Provide an in-app reading guide that distinguishes the author's argument,
+      evidence to notice, vocabulary or context, and questions or limitations;
+      every historical claim in the guide remains traceable to a checked source.
+- [ ] Prefer a stable HTML chapter or bounded document link when one exists;
+      when only a long PDF is available, link to the exact reading location and
+      retain its full bibliographic citation and institutional landing page.
+- [ ] Give every external reading a useful unavailable-link fallback containing
+      the citation, assigned locator, learner task, and enough guidance to
+      continue the module without implying that the source itself was read.
+- [ ] Pass independent historical review, keyboard and small-viewport review,
+      tests, lint, build, and representative desktop and mobile screenshot
+      review.
+
 ### EW-019 — Build southern Mesopotamia visual geography
 
 **Acceptance criteria**
