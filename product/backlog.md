@@ -70,7 +70,12 @@ development and curriculum work.
 - [ ] Include at least three reviewed objects across site, artifact, text, map,
       dataset, or scholarship types.
 - [ ] Separate observation, context, interpretation, and uncertainty.
-- [ ] Use stable collection/catalogue locators and rights metadata.
+- [ ] Use stable collection/catalogue locators and verified source metadata.
+- [ ] Record rights/credit metadata for any image, scan, map, or other media
+      reproduced inside Empire Wheel.
+- [ ] If reproduction rights are not verified, the evidence object may still be
+      used through sourced metadata, description, citation, and an external
+      locator, but the protected media itself must not be reproduced.
 - [ ] Revise the argument prompt to require named evidence and a limitation.
 
 ### EW-018a — Turn the reading list into a guided reading experience
