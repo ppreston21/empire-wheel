@@ -17,6 +17,13 @@ export type SourceRecord = {
   verificationDate: string | null;
 };
 
+/** A learner-facing use of a checked source. */
+export type ExternalResource = ContentObject & {
+  sourceId: string;
+  citation: string;
+  learnerQuestion: string;
+};
+
 export type ContentObject = { id: string; reviewState: ReviewState };
 
 export type EvidenceObject = ContentObject & {

@@ -87,6 +87,24 @@ would violate the project's source-integrity rule.
 - Do not embed video until creator, duration, availability, and pedagogical
   purpose are verified.
 
+## EW-017 source ledger and review
+
+Checked 2026-08-12. The smallest coherent set is two open scholarly readings;
+no video is included because a media item did not clear the same metadata and
+module-fit gate. Learners therefore encounter contrasting scales of analysis
+without an ornamental embed.
+
+| State | Resource | Learner use | Access and time |
+| --- | --- | --- | --- |
+| historically-reviewed | Robert A. Carter and Graham Philip, eds., *Beyond the Ubaid: Transformation and Integration in the Late Prehistoric Societies of the Middle East*, SAOC 63 (Oriental Institute, 2010) | Ask which patterns support regional integration and which claims about control remain inferential. | Open institutional PDF; 25m |
+| historically-reviewed | Nicola Crüsemann, Margarete van Ess, Markus Hilgert, and Beate Salje, eds., *Uruk: First City of the Ancient World* (Getty Publications, 2019) | Compare the evidence for material scale with the interpretation contained in “first city.” | Open web edition/PDF; 20m |
+
+**Historical review:** Bibliographic identity, institutional locator, open-access
+status, and fit with the module question were checked on 2026-08-12. The first
+reading prevents the Ubaid from becoming merely a preface to Uruk; the second
+assembles multiple evidence types at Uruk scale. Neither is assigned as proof
+of a single causal account. No unchecked candidate is present in learner UI.
+
 ## Argument and rubric
 
 **Prompt:** Which combination of evidence best explains the changing scale of

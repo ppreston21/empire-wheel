@@ -25,6 +25,24 @@ describe("initial curriculum", () => {
     expect(moduleOne.exercise).toMatchObject({ minWords: 300, maxWords: 600 });
   });
 
+  it("publishes the historically reviewed Module 1 reading set", () => {
+    expect(moduleOne.resources).toHaveLength(2);
+    expect(moduleOne.sourceLedger).toHaveLength(2);
+    for (const resource of moduleOne.resources) {
+      const source = moduleOne.sourceLedger.find(({ id }) => id === resource.sourceId);
+      expect(resource.reviewState).toBe("historically-reviewed");
+      expect(resource.learnerQuestion).toBeTruthy();
+      expect(source).toMatchObject({
+        state: "historically-reviewed",
+        accessStatus: "open",
+        verificationDate: "2026-08-12",
+      });
+      expect(source?.url).toMatch(/^https:\/\//);
+      expect(source?.learnerPurpose).toBeTruthy();
+      expect(source?.expectedTimeMinutes).toBeGreaterThan(0);
+    }
+  });
+
   it("excludes draft content and content backed by unchecked candidate sources", () => {
     const checkedSource: SourceRecord = {
       id: "checked-source", state: "source-checked", title: "Checked resource",
