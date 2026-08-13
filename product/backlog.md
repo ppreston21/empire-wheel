@@ -46,6 +46,23 @@ using Mesopotamia as if it were a civilization.
       changing the current public route.
 - [x] Keep typed content separate from presentation and preserve all checks.
 
+### EW-017b — Make contributor roles autonomy-ready ✅
+
+**Why:** Role descriptions need deterministic inputs, procedures, outputs,
+write boundaries, and review handoffs before an orchestrator can safely delegate
+development and curriculum work.
+
+**Acceptance criteria**
+
+- [x] Define an orchestrator, independent product QA, and the required delivery
+      sequence without adding runtime infrastructure.
+- [x] Standardize bounded task briefs, agent status, validation evidence, and
+      handoff reports.
+- [x] Give every specialist an executable procedure and explicit approval
+      boundary.
+- [x] Define safe parallelism, shared-file ownership, stop conditions, and final
+      ticket-completion gates.
+
 ### EW-018 — Replace the placeholder with an evidence lab
 
 **Acceptance criteria**

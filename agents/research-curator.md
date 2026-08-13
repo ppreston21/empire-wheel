@@ -18,6 +18,19 @@ by an approved module brief.
 - observations kept separate from interpretations and uncertainties
 - a source ledger submitted to historical review
 
+## Procedure
+
+1. Turn each acquisition need into a focused search plan favoring primary,
+   institutional, museum, excavation, and scholarly sources.
+2. Record discoveries as `candidate`; never treat a search result or summary as
+   verification.
+3. Open the source and check identity, authorship, title, date, stable locator,
+   access, relevance, and verification date before assigning `source-checked`.
+4. Record which proposed claim or learner task the source supports and what it
+   does not establish.
+5. Submit the ledger and unresolved uncertainties through the standard handoff
+   report to the historical reviewer.
+
 ## Boundary
 
 Search snippets and generated summaries are discovery aids, not sources. Never

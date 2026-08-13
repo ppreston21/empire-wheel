@@ -41,6 +41,9 @@ hardcoded prose while the content schema is being revised.
 ## Contributor roles
 
 The role guides in `agents/` preserve review boundaries from research through
-implementation. They define handoffs and expected artifacts, but do not add
-runtime agents or infrastructure. One contributor may perform multiple roles;
-historical review must still remain a distinct publication decision.
+implementation. They are operational prompts for repository-level autonomous
+contributors and define bounded task briefs, write scopes, handoff reports, and
+independent review gates. They do not add agents or orchestration infrastructure
+to the learner-facing application. One contributor may perform multiple roles
+sequentially; historical review and product QA must still remain distinct
+decisions.
