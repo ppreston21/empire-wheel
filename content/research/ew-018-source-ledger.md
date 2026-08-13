@@ -2,7 +2,42 @@
 
 **Prepared:** 2026-08-13  
 **Role:** research curator  
-**Status:** research handoff; **not historical approval**
+**Status:** evidence-lab set historically reviewed; wider Module 1 remains draft
+
+## Historically reviewed evidence-lab set
+
+On 2026-08-13 the Met's public collection API and corresponding collection
+pages were accessed without authentication for all three records below. For
+each object, the API confirmed the object ID, accession number, title, object
+type, date/period, medium, dimensions, repository credit, public-domain flag,
+open image URL, and canonical collection URL. The rendered lab links the
+canonical record and uses the API's open-access image and credit. This clears
+identity, stable locator, access, basic metadata, and reproduction-rights
+checks. After corrections and resubmission, an independent historical reviewer
+approved the exact bounded rendered claims and questions on 2026-08-13.
+
+| State | Type | Exact object and stable locator | Checked metadata and access |
+| --- | --- | --- | --- |
+| `historically-reviewed` | Administrative tablet | The Met object [329081](https://www.metmuseum.org/art/collection/search/329081), accession **1988.433.1**, *Proto-Cuneiform tablet with seal impressions: administrative account of barley distribution with cylinder seal impression of a male figure, hunting dogs, and boars* | Clay; Jemdet Nasr; ca. 3100–2900 BCE; 5.4 × 6 × 4.1 cm; Mesopotamia. Record and full image open; API `isPublicDomain: true`. Purchase, Raymond and Beverly Sackler Gift, 1988. |
+| `historically-reviewed` | Production object | The Met object [325431](https://www.metmuseum.org/art/collection/search/325431), accession **62.70.25**, *Beveled rim bowl* | Ceramic; Late Uruk; ca. 3300–3100 BCE; 8.2 × 19 × 19 cm; Nippur, Mesopotamia. Record and full image open; API `isPublicDomain: true`. Rogers Fund, 1962. |
+| `historically-reviewed` | Sealing | The Met object [325498](https://www.metmuseum.org/art/collection/search/325498), accession **62.70.93**, *Sealing* | Ceramic; Uruk; fourth millennium BCE; 5.99 cm; Nippur, Mesopotamia. Record and full image open; API `isPublicDomain: true`. Rogers Fund, 1962. |
+
+**API locators:**
+`https://collectionapi.metmuseum.org/public/collection/v1/objects/{objectID}`.
+The tablet is attributed as probably from Uruk, and the other two objects are
+attributed to Nippur; the records supply no excavation, locale, or locus. The
+development content therefore states that limitation and does not infer
+findspot, institutional owner, production regime, or scale of control. The set
+spans three evidence roles and at least two material/evidence types, but all
+three records belong to one collection; independent historical review should
+test whether that constraint undermines the intended comparison.
+
+**Historical-review handoff:** `READY_FOR_REVIEW`. After an initial
+`CHANGES_REQUESTED` pass, the corrected exact rendering was independently
+reviewed. The reviewer authorized all three source records, evidence objects,
+and their bounded claims, questions, and argument prompt to transition to
+`historically-reviewed`. This approval excludes the draft overview, timeline,
+wider Module 1 curriculum, accessibility, product QA, and application release.
 
 ## Verification note and revised acquisition method
 

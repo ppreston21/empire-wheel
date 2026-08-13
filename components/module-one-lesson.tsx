@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { moduleOne } from "@/content/spokes/sumer/modules/module-01";
 import { countWords, createMockReview, type MockReview } from "@/lib/module-review";
 import { markModuleOneComplete, readModuleOneComplete } from "@/lib/progress";
-import { learnerVisibleContent } from "@/lib/publication";
+import { developmentReviewContent, learnerVisibleContent, releaseReadyContent } from "@/lib/publication";
 
 const sectionLabel = "text-xs font-bold uppercase tracking-[.2em] text-[#b28d4c]";
 
@@ -15,7 +16,10 @@ export function ModuleOneLesson() {
   const [attempted, setAttempted] = useState(false);
   const words = countWords(response);
   const valid = words >= moduleOne.exercise.minWords && words <= moduleOne.exercise.maxWords;
-  const publishedEvidence = learnerVisibleContent(moduleOne.evidenceObjects, moduleOne.sourceLedger, (item) => item.sourceIds);
+  const reviewEvidence = [
+    ...releaseReadyContent(moduleOne.evidenceObjects, moduleOne.sourceLedger, (item) => item.sourceIds),
+    ...developmentReviewContent(moduleOne.evidenceObjects, moduleOne.sourceLedger, (item) => item.sourceIds),
+  ];
   const publishedResources = learnerVisibleContent(moduleOne.resources, moduleOne.sourceLedger, (item) => [item.sourceId]);
 
   useEffect(() => setComplete(readModuleOneComplete()), []);
@@ -93,7 +97,31 @@ export function ModuleOneLesson() {
           <ul className="mt-7 grid gap-2 text-sm text-stone-400 sm:grid-cols-2">
             {moduleOne.evidence.items.map((item) => <li key={item}>◇ {item}</li>)}
           </ul>
-          {publishedEvidence.map((item) => <article key={item.id} className="mt-7 border-t border-white/10 pt-6"><h3 className="font-serif text-xl text-stone-200">{item.title}</h3><p className="mt-2 text-sm leading-6 text-stone-400">{item.description}</p></article>)}
+          {reviewEvidence.length > 0 && <p role="status" className="mt-7 border border-amber-500/50 bg-amber-950/40 p-4 text-sm font-bold uppercase tracking-[.12em] text-amber-200">Evidence historically reviewed · wider draft module not release-ready</p>}
+          <div className="mt-7 space-y-8">
+            {reviewEvidence.map((item, index) => {
+              const source = moduleOne.sourceLedger.find(({ id }) => id === item.sourceIds[0]);
+              return <article key={item.id} className="overflow-hidden border border-white/10 bg-black/20">
+                <div className="grid lg:grid-cols-[minmax(260px,.8fr)_1.2fr]">
+                  <div className="relative min-h-72 bg-stone-200">
+                    <Image src={item.image.url} alt={item.image.alt} fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-contain" unoptimized />
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <p className="text-xs font-bold uppercase tracking-[.16em] text-[#c9aa6d]">Object {index + 1} · {item.evidenceType}</p>
+                    <h3 className="mt-3 font-serif text-2xl leading-tight text-stone-100">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-stone-400">{item.description}</p>
+                    <EvidenceField label="Direct observation">{item.observation}</EvidenceField>
+                    <EvidenceField label="Catalogue context">{item.context}</EvidenceField>
+                    <div className="mt-5"><p className="text-xs font-bold uppercase tracking-[.14em] text-[#c9aa6d]">Interpretations to test</p><ul className="mt-2 space-y-2 text-sm leading-6 text-stone-300">{item.interpretations.map((interpretation) => <li key={interpretation}>◇ {interpretation}</li>)}</ul></div>
+                    <EvidenceField label="Uncertainty and limits">{item.uncertainty}</EvidenceField>
+                    <div className="mt-6 border-t border-white/10 pt-5"><p className="text-xs font-bold uppercase tracking-[.14em] text-[#c9aa6d]">Your inquiry</p><ol className="mt-3 space-y-3">{item.guidedQuestions.map((question) => <li key={question.stage} className="grid gap-1 text-sm leading-6 sm:grid-cols-[110px_1fr]"><strong className="text-stone-500">{question.stage}</strong><span className="text-stone-300">{question.prompt}</span></li>)}</ol></div>
+                    <p className="mt-5 text-xs leading-5 text-stone-500">Locator: {item.locator}<br />Credit: {item.image.credit}<br />Rights: {item.image.rights}</p>
+                    {source && <a className="mt-4 inline-block border-b border-[#a98648] pb-1 text-sm font-bold text-[#e0bd78]" href={source.url} target="_blank" rel="noreferrer">Inspect collection record ↗</a>}
+                  </div>
+                </div>
+              </article>;
+            })}
+          </div>
         </div>
       </section>
 
@@ -123,6 +151,10 @@ export function ModuleOneLesson() {
       </section>
     </>
   );
+}
+
+function EvidenceField({ label, children }: { label: string; children: string }) {
+  return <div className="mt-5 border-l border-white/15 pl-4"><p className="text-xs font-bold uppercase tracking-[.14em] text-[#c9aa6d]">{label}</p><p className="mt-2 text-sm leading-6 text-stone-300">{children}</p></div>;
 }
 
 function Review({ review }: { review: MockReview }) {

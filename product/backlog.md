@@ -67,31 +67,31 @@ development and curriculum work.
 
 #### Acquisition gate
 
-- [ ] Select at least three exact evidence objects across at least two types.
-- [ ] Each object reaches `source-checked`.
-- [ ] Record identity, locator, context, source metadata, uncertainty, and
+- [x] Select at least three exact evidence objects across at least two types.
+- [x] Each object reaches `source-checked`.
+- [x] Record identity, locator, context, source metadata, uncertainty, and
       applicable rights/credit information.
-- [ ] Rights are required only for media reproduced by Empire Wheel; unknown
+- [x] Rights are required only for media reproduced by Empire Wheel; unknown
       reproduction rights do not prevent metadata/citation-only use.
 
 #### Implementation
 
-- [ ] Implement the evidence lab using the source-checked objects.
-- [ ] Clearly distinguish observation, context, interpretation, and uncertainty.
-- [ ] Revise the argument prompt to require named evidence and a limitation.
-- [ ] Source-checked development content must not be release-enabled.
+- [x] Implement the evidence lab using the source-checked objects.
+- [x] Clearly distinguish observation, context, interpretation, and uncertainty.
+- [x] Revise the argument prompt to require named evidence and a limitation.
+- [x] Source-checked development content must not be release-enabled.
 
 #### Historical review
 
-- [ ] Independent historical reviewer reviews the rendered evidence lab.
-- [ ] Corrections are implemented.
-- [ ] Approved objects and claims transition to `historically-reviewed`.
+- [x] Independent historical reviewer reviews the rendered evidence lab.
+- [x] Corrections are implemented.
+- [x] Approved objects and claims transition to `historically-reviewed`.
 
 #### Completion
 
-- [ ] All three objects are historically reviewed.
-- [ ] Historical QA passes against the rendered experience.
-- [ ] Tests, lint, build, accessibility, and product QA pass.
+- [x] All three objects are historically reviewed.
+- [x] Historical QA passes against the rendered experience.
+- [x] Tests, lint, build, accessibility, and product QA pass.
 
 ### EW-018a — Turn the reading list into a guided reading experience
 
