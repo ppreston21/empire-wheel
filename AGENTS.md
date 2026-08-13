@@ -100,3 +100,15 @@ Before claiming completion:
 
 If a gate cannot run, report the exact command, failure, and limitation. A
 partial result is a handoff, not a completed ticket.
+
+## Development versus publication
+
+Historical review is a release gate, not an implementation prerequisite.
+
+- `candidate` material remains restricted to research notes.
+- `source-checked` material may be implemented in development so reviewers can
+  inspect the exact rendered experience.
+- Development content using `source-checked` material must remain visibly
+  non-release and must not be promoted to production.
+- `historically-reviewed` status is required before learner release.
+- Implementers may not promote their own content to `historically-reviewed`.
