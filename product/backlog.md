@@ -65,18 +65,43 @@ development and curriculum work.
 
 ### EW-018 — Replace the placeholder with an evidence lab
 
-**Acceptance criteria**
+Delivery is sequential. Source-checked evidence may enter an explicitly
+non-release development implementation so the historical reviewer can inspect
+the exact rendered experience; it is not thereby approved for release.
 
-- [ ] Include at least three reviewed objects across site, artifact, text, map,
-      dataset, or scholarship types.
+**Acquisition**
+
+- [ ] Select at least three exact objects across at least two of site, artifact,
+      text, map, dataset, or scholarship evidence types.
+- [ ] Verify identity, stable collection/catalogue locator, access, and basic
+      source metadata so every selected object reaches `source-checked`.
+- [ ] Keep candidates in research notes; do not pass them to implementation.
+
+**Implementation**
+
+- [ ] Implement the evidence lab with source-checked objects in an explicitly
+      non-release development state.
 - [ ] Separate observation, context, interpretation, and uncertainty.
-- [ ] Use stable collection/catalogue locators and verified source metadata.
-- [ ] Record rights/credit metadata for any image, scan, map, or other media
-      reproduced inside Empire Wheel.
-- [ ] If reproduction rights are not verified, the evidence object may still be
-      used through sourced metadata, description, citation, and an external
-      locator, but the protected media itself must not be reproduced.
 - [ ] Revise the argument prompt to require named evidence and a limitation.
+- [ ] Record rights/credit metadata for every image, scan, map, or other medium
+      reproduced inside Empire Wheel. If reproduction permission is not
+      verified, use only verified metadata, description, citation, and an
+      external locator; do not reproduce the protected medium.
+
+**Historical review**
+
+- [ ] Independently review the exact rendered evidence objects, learner-facing
+      claims, evidence use, interpretations, and treatment of uncertainty.
+- [ ] Correct review findings and resubmit the rendered experience as needed.
+- [ ] Only the independent historical reviewer may promote approved objects and
+      claims to `historically-reviewed`.
+
+**Completion**
+
+- [ ] Confirm all required evidence objects and learner-facing historical claims
+      are `historically-reviewed`.
+- [ ] Pass tests, lint, build, accessibility review, visual review, and product
+      QA before marking EW-018 complete or making the evidence lab release-ready.
 
 ### EW-018a — Turn the reading list into a guided reading experience
 
