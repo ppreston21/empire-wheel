@@ -19,16 +19,16 @@ share one undifferentiated content model.
 - [x] Learner routes exclude unchecked candidates by default.
 - [x] Tests reject a publishable evidence object without source and locator.
 
-### EW-017 — Curate the Module 1 reading and media set
+### EW-017 — Curate the Module 1 reading and media set ✅
 
 **Why:** The current module has no meaningful encounter with scholarship.
 
 **Acceptance criteria**
 
-- [ ] Select 2–3 accessible scholarly readings and at most two media resources.
-- [ ] Record author/institution, purpose, time, access, URL, and verification date.
-- [ ] A historical reviewer checks bibliography, links, and module fit.
-- [ ] Each card tells the learner what question to bring to the resource.
+- [x] Select 2–3 accessible scholarly readings and at most two media resources.
+- [x] Record author/institution, purpose, time, access, URL, and verification date.
+- [x] A historical reviewer checks bibliography, links, and module fit.
+- [x] Each card tells the learner what question to bring to the resource.
 
 ### EW-018 — Replace the placeholder with an evidence lab
 
