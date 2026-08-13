@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { competencies, curriculumModules } from "../lib/curriculum";
-import { moduleOne } from "../content/mesopotamia/module-01";
+import { moduleOne } from "../content/spokes/sumer/modules/module-01";
 import type { EvidenceObject, SourceRecord } from "../content/types";
 import { assertPublishableEvidence, learnerVisibleContent } from "../lib/publication";
 

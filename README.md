@@ -35,7 +35,8 @@ npm run build
 ```text
 app/                  Next.js App Router pages and global styles
 components/           Shared interface components
-content/              Typed historical curriculum content
+content/              Typed research, sources, and spoke curriculum content
+agents/               Contributor role and handoff guides
 lib/                  Typed curriculum and competency data
 tests/                Unit tests for important application data
 product/              Product vision and requirements

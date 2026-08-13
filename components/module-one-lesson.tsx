@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { moduleOne } from "@/content/mesopotamia/module-01";
+import { moduleOne } from "@/content/spokes/sumer/modules/module-01";
 import { countWords, createMockReview, type MockReview } from "@/lib/module-review";
 import { markModuleOneComplete, readModuleOneComplete } from "@/lib/progress";
 import { learnerVisibleContent } from "@/lib/publication";

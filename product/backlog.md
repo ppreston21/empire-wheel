@@ -30,23 +30,21 @@ share one undifferentiated content model.
 - [x] A historical reviewer checks bibliography, links, and module fit.
 - [x] Each card tells the learner what question to bring to the resource.
 
-EW-017a -- reconfigure the agents.md into an /agents directory and populate those relevant markdowns and content directories around the existing content
-/agents
-    /curriculum-architect.md
-    /research-curator.md
-    /media-curator.md
-    /historical-reviewer.md
-    /requirements-writer.md
-    /implementation.md
+### EW-017a — Establish contributor roles and content ownership ✅
 
-and /content directory around 
-/content
-    /research
-    /spokes
-    /modules
-    /sources
+**Why:** Curriculum work needs explicit research, review, and implementation
+handoffs, while runtime content should identify Sumer as a spoke rather than
+using Mesopotamia as if it were a civilization.
 
-/mesopotamia -- really sumer, would go under /spokes
+**Acceptance criteria**
+
+- [x] Add focused role guides under `agents/` with inputs, outputs, and review
+      boundaries.
+- [x] Organize `content/` around `research`, `sources`, shared `modules`, and
+      spoke-owned runtime curriculum.
+- [x] Move Module 1 from `content/mesopotamia` to the Sumer spoke without
+      changing the current public route.
+- [x] Keep typed content separate from presentation and preserve all checks.
 
 ### EW-018 — Replace the placeholder with an evidence lab
 
