@@ -27,12 +27,22 @@ export type ExternalResource = ContentObject & {
 export type ContentObject = { id: string; reviewState: ReviewState };
 
 export type EvidenceObject = ContentObject & {
+  evidenceType: string;
   title: string;
   description: string;
   observation: string;
+  context: string;
   interpretations: string[];
+  uncertainty: string;
+  guidedQuestions: { stage: "Observe" | "Contextualize" | "Interpret"; prompt: string }[];
   sourceIds: string[];
   locator: string;
+  image: {
+    url: string;
+    alt: string;
+    credit: string;
+    rights: string;
+  };
 };
 
 export type NarrativeSection = ContentObject & {

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { competencies, curriculumModules } from "../lib/curriculum";
 import { moduleOne } from "../content/spokes/sumer/modules/module-01";
 import type { EvidenceObject, SourceRecord } from "../content/types";
-import { assertPublishableEvidence, learnerVisibleContent } from "../lib/publication";
+import { assertPublishableEvidence, developmentReviewContent, learnerVisibleContent, releaseReadyContent } from "../lib/publication";
 
 describe("initial curriculum", () => {
   it("defines all 18 competency spokes", () => {
@@ -21,13 +21,14 @@ describe("initial curriculum", () => {
     expect(moduleOne.reviewState).toBe("draft");
     expect(moduleOne.keyConcepts).toContain("writing/accounting");
     expect(moduleOne.timeline).toHaveLength(5);
-    expect(moduleOne.evidence.label).toMatch(/not source objects/i);
+    expect(moduleOne.evidence.label).toMatch(/historically reviewed evidence lab/i);
     expect(moduleOne.exercise).toMatchObject({ minWords: 300, maxWords: 600 });
   });
 
   it("publishes the historically reviewed Module 1 reading set", () => {
     expect(moduleOne.resources).toHaveLength(2);
-    expect(moduleOne.sourceLedger).toHaveLength(2);
+    const readingSourceIds = new Set(moduleOne.resources.map(({ sourceId }) => sourceId));
+    expect(moduleOne.sourceLedger.filter(({ id }) => readingSourceIds.has(id))).toHaveLength(2);
     for (const resource of moduleOne.resources) {
       const source = moduleOne.sourceLedger.find(({ id }) => id === resource.sourceId);
       expect(resource.reviewState).toBe("historically-reviewed");
@@ -52,8 +53,9 @@ describe("initial curriculum", () => {
     };
     const candidateSource: SourceRecord = { ...checkedSource, id: "candidate", state: "candidate", verificationDate: null };
     const evidence = (id: string, reviewState: EvidenceObject["reviewState"], sourceIds: string[]): EvidenceObject => ({
-      id, reviewState, title: id, description: "Test description", observation: "Test observation",
-      interpretations: ["Test interpretation"], sourceIds, locator: "catalogue-1",
+      id, reviewState, evidenceType: "Test type", title: id, description: "Test description", observation: "Test observation",
+      context: "Test context", interpretations: ["Test interpretation"], uncertainty: "Test uncertainty", guidedQuestions: [], sourceIds, locator: "catalogue-1",
+      image: { url: "https://example.test/image.jpg", alt: "Test image", credit: "Test credit", rights: "Test rights" },
     });
     const visible = learnerVisibleContent(
       [evidence("draft", "draft", [checkedSource.id]), evidence("candidate-backed", "source-checked", [candidateSource.id]), evidence("checked", "source-checked", [checkedSource.id])],
@@ -62,11 +64,20 @@ describe("initial curriculum", () => {
     expect(visible.map(({ id }) => id)).toEqual(["checked"]);
   });
 
+  it("makes only historically reviewed evidence release-ready", () => {
+    expect(moduleOne.evidenceObjects).toHaveLength(3);
+    expect(new Set(moduleOne.evidenceObjects.map(({ evidenceType }) => evidenceType)).size).toBeGreaterThan(1);
+    expect(moduleOne.evidenceObjects.every(({ reviewState }) => reviewState === "historically-reviewed")).toBe(true);
+    expect(releaseReadyContent(moduleOne.evidenceObjects, moduleOne.sourceLedger, (item) => item.sourceIds)).toHaveLength(3);
+    expect(developmentReviewContent(moduleOne.evidenceObjects, moduleOne.sourceLedger, (item) => item.sourceIds)).toEqual([]);
+  });
+
   it("rejects historically reviewed evidence without a source and locator", () => {
     const invalid: EvidenceObject = {
-      id: "missing-source", reviewState: "historically-reviewed", title: "Invalid evidence",
-      description: "Test description", observation: "Test observation",
-      interpretations: ["Test interpretation"], sourceIds: [], locator: "",
+      id: "missing-source", reviewState: "historically-reviewed", evidenceType: "Test type", title: "Invalid evidence",
+      description: "Test description", observation: "Test observation", context: "Test context",
+      interpretations: ["Test interpretation"], uncertainty: "Test uncertainty", guidedQuestions: [], sourceIds: [], locator: "",
+      image: { url: "https://example.test/image.jpg", alt: "Test image", credit: "Test credit", rights: "Test rights" },
     };
     expect(() => assertPublishableEvidence(invalid, [])).toThrow(/requires a source and locator/i);
   });
