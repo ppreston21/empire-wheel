@@ -4,22 +4,156 @@
 **Role:** research curator  
 **Status:** research handoff; **not historical approval**
 
-## Verification note and stop condition
+## Verification note and revised acquisition method
 
-The execution environment returned `401 Unauthorized` from its web research
-service and `403 Forbidden` for direct HTTPS requests through its network
-proxy on 2026-08-13. Consequently, no newly discovered collection record could
-honestly be promoted to `source-checked`: its live page, metadata, access, and
-rights could not be opened together. Search-result text is not treated as a
-source. The two readings below retain the `historically-reviewed` state already
-recorded in the approved Module 1 brief (checked 2026-08-12); this ledger does
-not independently re-approve them.
+The first pass over-relied on individual institutional websites. The execution
+environment still returns `401 Unauthorized` from its web research service and
+`403 Forbidden` for most HTTPS requests through its network proxy on
+2026-08-13, but that does **not** make a blocked museum domain a ticket-level
+blocker. The revised method treats every catalogue page as replaceable and
+also tests repository exports, open APIs, DOI metadata, excavation archives,
+and scholarly datasets.
+
+That broader pass found the Cuneiform Digital Library Initiative (CDLI) public
+catalogue export hosted in the `cdli-gh/data` GitHub repository. The repository
+README identifies it as a dump of CDLI public catalogue and text data and says
+the last update was August 2022. On 2026-08-13 the complete `cdli_cat.csv` LFS
+object could be downloaded anonymously from GitHub. The checked local copy was
+154,768,722 bytes with SHA-256
+`2e3232f75325b61c4d1e788d4d8c074c6230a947aed422110f9f35a6e353d09c`;
+that hash also appears in the repository's LFS pointer.
+
+- **Repository:** <https://github.com/cdli-gh/data>
+- **Catalogue export:**
+  <https://media.githubusercontent.com/media/cdli-gh/data/master/cdli_cat.csv>
+- **Format and provenance note:**
+  <https://github.com/cdli-gh/data/blob/master/README.md>
+
+CDLI therefore provides a viable **discovery and catalogue-metadata path** even
+while its application website is unavailable. It does not by itself clear an
+object for learner publication: the GitHub repository does not expose an
+explicit reuse license, `photo_up`/`lineart_up` flags are not image licenses,
+and associated publications and renderings still require rights and historical
+review. Search-result text remains a discovery aid, not a source.
 
 This is the appropriate research handoff rather than an invented evidence lab.
 The candidate records below are precise leads for the next curator with working
 network access. They **must not enter learner-facing content** until every item
 in its check list is confirmed and an independent historical reviewer approves
 its proposed use.
+
+## Does the CDLI method scale to other spokes?
+
+The **method** scales; the **CDLI corpus** does not scale to all nineteen
+spokes. Versioned bulk exports with stable record identifiers, provenance, and
+publication fields should be preferred in every spoke because they can be
+audited and searched without depending on one presentation website. CDLI is a
+specialist cuneiform corpus, however, not a universal history collection.
+
+- **Strong fit:** Sumer, Akkad, Ur III, Old Babylon, Assyria, and Neo-Babylon.
+- **Selective fit:** Hittites and Persia, where cuneiform records illuminate
+  only part of the spoke and must be joined to other archaeological and textual
+  corpora.
+- **Contextual edge cases:** Greece and later western-Asian histories when a
+  cuneiform record directly bears on a transition or regional comparison.
+- **Not a primary acquisition source:** Rome through the United States. Those
+  spokes need domain-appropriate epigraphic, papyrological, archival, museum,
+  statistical, library, or government repositories.
+
+The reusable lesson is a source-adapter strategy—prefer export/API/DOI access,
+record the dataset version and checksum, preserve the provider's identifier,
+and separately verify item-level rights—not “use CDLI for every spoke.”
+
+## Scholarly discovery platforms
+
+Academia.edu and Elicit were added to the retry matrix on 2026-08-13. Both
+domains returned `403 Forbidden` through this environment's proxy, so neither
+could be searched here. A future pass may use them interactively where access
+and their terms permit, but they are discovery services rather than historical
+authorities: every useful result must be resolved to its DOI, publisher,
+institutional repository, or author-deposited manuscript and checked there.
+The project must not evade login, anti-bot controls, rate limits, or access
+restrictions, and an Academia.edu upload is not assumed to be authorized merely
+because it can be downloaded. Elicit's generated summaries are likewise not
+sources.
+
+Preferred scholarly discovery order for the next pass:
+
+1. Crossref, OpenAlex, Semantic Scholar, library catalogues, and repository
+   exports/APIs for structured identifiers and metadata;
+2. institutional repositories and author-deposited manuscripts for access;
+3. Academia.edu and Elicit for additional leads when permitted;
+4. the publisher/DOI record and the work itself for final verification.
+
+## Revised EW-018 first-pass results
+
+The 64-field CDLI export was filtered for `Uruk III`, `Uruk IV`, `Uruk V`,
+`Pre-Uruk V`, `Jemdet Nasr`, and proto-cuneiform catalogue text. It returned
+17,731 broad matches; 3,845 Uruk-period records from Uruk/Warka had an exact
+object type, a publication, an image or line-art availability flag, and at
+least one excavation/findspot field. These counts are reproducible discovery
+results, not historical claims for learner UI.
+
+Three exact records now replace the earlier single-domain dead end. They remain
+`candidate` pending inspection of the line art, primary publication, catalogue
+semantics, and reuse terms:
+
+### Candidate 1 — lexical tablet, CDLI P000001 / VAT 01533
+
+- **State:** `candidate`; exact export row checked 2026-08-13
+- **Stable identifiers:** CDLI catalogue ID **1**; museum no. **VAT 01533**;
+  excavation no. **W 06435,a**; ARK **ark:/21198/zz001q0dtm**
+- **Export metadata:** clay tablet, 31 × 61 × 18 mm; Uruk III (ca. 3200–3000
+  BCE); Uruk/Warka; findspot square `M XVIII,?`; lexical genre; line-art flag
+  `150ppi 20160630`; held by the Vorderasiatisches Museum, Berlin.
+- **Publication trail recorded by CDLI:** *ATU* 3 (1993), pl. 11, W 6435,a;
+  *ATU* 1, 594. CDLI designates it `CDLI Lexical 000002, ex. 065` and records no
+  translation.
+- **Proposed learner use:** distinguish the visible organization of marks from
+  the catalogue classification “lexical” and from claims about an institution.
+- **Unresolved gate:** inspect the line art and publications; confirm the ARK
+  resolves; verify current museum custody and rights. No translation or sign
+  reading may be supplied from this row.
+
+### Candidate 2 — administrative tag, CDLI P000810 / VAT 15344
+
+- **State:** `candidate`; exact export row checked 2026-08-13
+- **Stable identifiers:** CDLI catalogue ID **749**; museum no. **VAT 15344**;
+  excavation no. **W 06705,g**; ARK **ark:/21198/zz001r6x4m**
+- **Export metadata:** clay tag, 23 × 32 × 11 mm; Uruk IV (ca. 3350–3200 BCE);
+  Uruk/Warka; square `Pe XVI,3`; administrative genre; line-art flag
+  `150ppi 20160630`; held by the Vorderasiatisches Museum, Berlin.
+- **Context recorded by CDLI:** found in the sherd layer at the recessed wall of
+  level IV; the catalogue notes that the object was hung on a string. Primary
+  publication is *ATU* 5 (1994), pl. 13, W 6705,g, with *ATU* 1, 481 in its
+  publication history.
+- **Proposed learner use:** compare a portable/hung administrative medium with
+  a tablet without assuming who issued it or what institution it served.
+- **Unresolved gate:** inspect the line art and cited plates, verify the German
+  findspot wording and chronology in context, and obtain line-art rights.
+
+### Candidate 3 — administrative tag, CDLI P000835 / IM 025687
+
+- **State:** `candidate`; exact export row checked 2026-08-13
+- **Stable identifiers:** CDLI catalogue ID **774**; museum no. **IM 025687**;
+  excavation no. **W 06759**; ARK **ark:/21198/zz001q6mm3**
+- **Export metadata:** clay tag, 20 × 25 × 10 mm; Uruk IV (ca. 3350–3200 BCE);
+  Uruk/Warka; square `Pd XVI,3`; administrative genre; line-art flag
+  `150ppi 20160630`; held by the National Museum of Iraq, Baghdad.
+- **Publication trail recorded by CDLI:** *ATU* 5 (1994), pl. 15, W 6759;
+  *ATU* 1, 2; K. Szarzyńska, *JCS* 46 (1994), 1–10, tag no. 9; and R. Englund
+  in *OBO* 160/1 (1998), p. 60, fig. 18.
+- **Proposed learner use:** compare two excavated tags from different squares
+  and ask what recurrence supports, while preserving the limits of a two-item
+  comparison.
+- **Unresolved gate:** inspect the line art and publications, reconcile the
+  catalogue's custody-history note, confirm the ARK, and obtain rights.
+
+This is a materially improved acquisition handoff, but it is not yet the final
+three-object evidence lab. Candidates 2 and 3 are the same evidence type, and
+the export cannot replace visual inspection or an independent historical
+review. The next pass should retain the strongest tag, add a genuinely distinct
+production/site/dataset object, and either clear all three or reject them.
 
 ## Existing reviewed readings
 
@@ -53,7 +187,11 @@ its proposed use.
   interpretive claim carried by “first city.”
 - **Expected time:** 20 minutes in the current runtime record.
 
-## EW-018 candidate evidence set
+## Superseded first-pass candidate evidence set
+
+The entries below preserve the original pass for audit history. The revised
+CDLI candidates above supersede the Met-specific acquisition path; category-only
+entries remain useful statements of evidence still needed, not selected objects.
 
 ### A. Administration — proto-cuneiform tablet, The Met 1988.433.1
 
