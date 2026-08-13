@@ -13,6 +13,21 @@ the backlog sequences **when**; module briefs define **what is taught**.
 - Unverified material must be visibly labeled `draft`, `candidate`, or
   `placeholder` and must not be presented as evidence.
 
+### R-001a — Review lifecycle and release boundary
+
+- `candidate` is a discovery state for research notes only. Candidate material
+  must never enter learner-facing or release-capable content.
+- `source-checked` means identity, stable locator, access, and basic metadata
+  have been verified. Source-checked evidence may be rendered in an explicitly
+  non-release development state so an independent historical reviewer can
+  inspect the exact learner experience.
+- `historically-reviewed` means the exact learner-facing claims, evidence use,
+  interpretation, and presentation of uncertainty have been independently
+  approved. Only historically reviewed historical content may be released.
+- Historical review is a release gate, not a prerequisite for development
+  implementation. Development rendering does not authorize publication or
+  promotion of review state.
+
 ### R-002 — Evidence is not interpretation
 
 Every evidence object must separately state (a) what the object or record is,
@@ -102,8 +117,10 @@ places, evidence, major claims, debates, and review questions.
 
 Typed content must support narrative sections, external resources, media,
 evidence objects, maps, timelines, images, system models, exercises, and study
-items. Each publishable object carries a review state: `draft`, `source-checked`,
-or `historically-reviewed`.
+items. Each content object carries a review state: `draft`, `source-checked`, or
+`historically-reviewed`. Source-checked objects are development-review inputs,
+not publishable content; release-capable collections must fail closed unless
+their historical content is historically reviewed.
 
 ## 5. Progress and mastery
 

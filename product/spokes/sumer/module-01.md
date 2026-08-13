@@ -71,9 +71,10 @@ as evidence by themselves:
 | C · Production | Catalogued mass-produced or standardized object assemblage | Does standardization demonstrate centralized control? | Provenance, date, image rights, and scholarly interpretation checked |
 | D · Synthesis | Peer-reviewed settlement or landscape dataset/map | How does scale change the argument? | Methods, date ranges, uncertainty, and reuse terms checked |
 
-No object is selected yet. This is intentional: source verification was not
-available during this refresh, so invented artifact IDs or bibliographic details
-would violate the project's source-integrity rule.
+This brief owns the pedagogical evidence roles, learner questions, and
+acquisition requirements. The EW-018 source ledger owns exact object selection,
+source metadata, and current review status. Mutable acquisition state must not
+be duplicated here.
 
 ## Reading and media acquisition criteria
 

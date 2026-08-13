@@ -24,13 +24,19 @@ is delegated and handed off.
 Orchestrator
   -> Curriculum architect (when the brief is missing or incomplete)
   -> Research curator + Media curator (parallel only with separate files)
-  -> Historical reviewer
+  -> Source-check handoff
   -> Requirements writer
   -> Implementation
-  -> Historical reviewer (for the built learner-facing result)
+  -> Historical reviewer (for the exact rendered learner-facing result)
   -> Product QA
   -> Orchestrator integration and completion decision
 ```
+
+Source checking verifies identity, locator, access, and basic metadata; it does
+not approve publication. Source-checked material may enter an explicitly
+non-release development implementation for historical inspection. Only the
+independent historical reviewer may promote the rendered content to
+`historically-reviewed`, and that approval remains mandatory before release.
 
 For code-only work with no historical or curriculum impact, the orchestrator may
 use `Requirements writer -> Implementation -> Product QA`. It must document why

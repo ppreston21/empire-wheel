@@ -56,13 +56,26 @@ and product QA remain separate decisions with fresh review passes.
   learner UI.
 - `candidate` means discovered but unchecked and is restricted to research
   notes. `source-checked` means identity, locator, access, and metadata were
-  checked. `historically-reviewed` means claims and use were independently
-  reviewed in context and may be published.
+  checked and may be rendered only in an explicitly non-release development
+  state for review. `historically-reviewed` means exact learner-facing claims,
+  evidence use, interpretation, and uncertainty were independently reviewed in
+  context and may be published.
 - Search snippets, generated summaries, and unsourced prose are not sources.
 - Record the verification date for web resources. Keep observation distinct
   from interpretation and state uncertainty rather than smoothing it away.
 
 ## Implementation rules
+
+### Development is not publication
+
+Historical review is a mandatory release gate, not an implementation
+prerequisite. An implementation agent may render source-checked material in an
+explicitly non-release development state so the historical reviewer can inspect
+the exact learner experience. The implementation agent may not promote that
+material to `historically-reviewed`, make it release-capable, or release it.
+Candidate material remains restricted to research notes and must never enter a
+learner-facing or release-capable collection. Independent historical review of
+the rendered experience is required before release.
 
 - Prefer the simplest implementation satisfying the product requirements.
 - Use TypeScript and keep typed curriculum content separate from presentation.
