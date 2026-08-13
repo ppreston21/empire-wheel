@@ -74,8 +74,17 @@ they include a legend, source note, and an explicit inquiry task.
 
 ### R-023 — Examine
 
-An evidence lab contains at least three reviewed evidence objects of more than
-one type. Guided questions move from observation to contextualization and then
+A release-ready evidence lab contains at least three historically-reviewed
+evidence objects of more than one type.
+
+During development, source-checked evidence objects may be rendered in a clearly
+non-release development state so that historical review can evaluate the exact
+learner-facing presentation.
+
+Candidate or unchecked objects must never appear in learner-facing or
+release-capable content.
+
+Guided questions move from observation to contextualization and then
 interpretation without revealing a preferred answer first.
 
 ### R-024 — Argue and review
