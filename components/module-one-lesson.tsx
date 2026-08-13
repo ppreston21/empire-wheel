@@ -58,24 +58,45 @@ export function ModuleOneLesson() {
 
       <section id="read" className="border-t border-white/10 pt-10">
         <p className={sectionLabel}>04 · Read scholarship</p>
-        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        <div role="status" className="mt-6 border border-amber-500/50 bg-amber-950/40 p-4 text-sm leading-6 text-amber-100">
+          Development reading guide · exact assignments and guide claims are source-checked and await independent historical review before release.
+        </div>
+        <p className="mt-5 max-w-3xl leading-7 text-stone-400">Read two bounded chapters as a conversation. First question the category “Ubaid”; then test how a regional model handles local difference. The guide supports your reading but does not replace the authors’ evidence.</p>
+        <div className="mt-6 space-y-6">
           {publishedResources.map((resource) => {
             const source = moduleOne.sourceLedger.find(({ id }) => id === resource.sourceId);
             if (!source) return null;
-            return <article key={resource.id} className="flex flex-col border border-white/10 bg-white/[.02] p-6 md:p-7">
+            return <article key={resource.id} className="border border-white/10 bg-white/[.02] p-5 sm:p-6 md:p-8">
               <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[.13em] text-[#bfa064]">
                 <span>{source.resourceType}</span><span aria-hidden="true">·</span><span>{source.expectedTimeMinutes} min</span><span aria-hidden="true">·</span><span>{source.accessStatus} access</span>
               </div>
               <h2 className="mt-4 font-serif text-2xl leading-tight text-stone-100">{source.title}</h2>
               <p className="mt-3 text-sm leading-6 text-stone-400">{source.creator}</p>
-              <p className="mt-5 leading-7 text-stone-300">{source.learnerPurpose}</p>
-              <div className="mt-5 border-l border-[#9c773a] pl-4">
+              <p className="mt-4 font-bold text-[#dbc28e]">Assigned reading: {resource.locator}</p>
+              <p className="mt-4 max-w-4xl leading-7 text-stone-300">{resource.centralQuestionConnection}</p>
+              <div className="mt-6 border-l border-[#9c773a] pl-4">
                 <p className="text-xs font-bold uppercase tracking-[.14em] text-[#c9aa6d]">Bring this question</p>
                 <p className="mt-2 font-serif text-lg leading-7 text-stone-200">{resource.learnerQuestion}</p>
               </div>
+              <div className="mt-7 grid gap-6 lg:grid-cols-2">
+                <GuideBlock title="Author’s argument"><p>{resource.guide.authorArgument}</p></GuideBlock>
+                <GuideBlock title="Evidence to notice"><GuideList items={resource.guide.evidenceToNotice} /></GuideBlock>
+                <GuideBlock title="Vocabulary & context"><dl className="space-y-3">{resource.guide.vocabulary.map(({ term, context }) => <div key={term}><dt className="font-bold text-stone-200">{term}</dt><dd className="mt-1">{context}</dd></div>)}</dl></GuideBlock>
+                <GuideBlock title="Questions & limitations"><GuideList items={resource.guide.questionsAndLimits} /></GuideBlock>
+              </div>
+              <div className="mt-7 flex flex-wrap gap-4">
+                <a className="inline-flex min-h-11 items-center border border-[#a98648] px-4 py-2 text-sm font-bold text-[#e0bd78] hover:bg-[#9c773a]/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4b77c]" href={resource.readingUrl} target="_blank" rel="noreferrer">Open at assigned pages <span className="sr-only">: {source.title}</span> ↗</a>
+                <a className="inline-flex min-h-11 items-center border-b border-stone-600 px-1 py-2 text-sm text-stone-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4b77c]" href={source.url} target="_blank" rel="noreferrer">Institutional landing page ↗</a>
+              </div>
+              <details className="mt-7 border border-white/10 bg-black/20 p-4 open:border-[#765f38]">
+                <summary className="cursor-pointer py-1 font-bold text-stone-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4b77c]">If the reading link is unavailable</summary>
+                <p className="mt-4 text-sm leading-6 text-stone-400"><strong className="text-stone-200">Continue task:</strong> {resource.unavailableFallback.learnerTask}</p>
+                <GuideList items={resource.unavailableFallback.guidance} />
+                <p className="mt-4 text-xs leading-5 text-stone-500"><strong className="text-stone-400">Citation:</strong> {resource.citation}<br /><strong className="text-stone-400">Assigned locator:</strong> {resource.locator}</p>
+                <p className="mt-3 text-xs font-bold text-amber-200">Use these prompts to prepare questions; do not cite the chapter as read until you can access it.</p>
+              </details>
               <p className="mt-5 text-xs leading-5 text-stone-500">{resource.citation}</p>
-              <a className="mt-6 w-fit border-b border-[#a98648] pb-1 text-sm font-bold text-[#e0bd78] hover:text-[#f0d9aa] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4b77c]" href={source.url} target="_blank" rel="noreferrer">Open resource <span className="sr-only">: {source.title}</span> ↗</a>
-              <p className="mt-4 text-xs text-stone-600">Bibliography, access, and module fit reviewed · link checked {source.verificationDate}</p>
+              <p className="mt-2 text-xs text-stone-600">Identity, locator, access, and module fit checked {source.verificationDate}</p>
             </article>;
           })}
         </div>
@@ -151,6 +172,14 @@ export function ModuleOneLesson() {
       </section>
     </>
   );
+}
+
+function GuideBlock({ title, children }: { title: string; children: React.ReactNode }) {
+  return <section className="border-t border-white/10 pt-4 text-sm leading-6 text-stone-400"><h3 className="text-xs font-bold uppercase tracking-[.14em] text-[#c9aa6d]">{title}</h3><div className="mt-3">{children}</div></section>;
+}
+
+function GuideList({ items }: { items: string[] }) {
+  return <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-400">{items.map((item) => <li key={item} className="pl-5 before:-ml-5 before:mr-3 before:text-[#b28d4c] before:content-['◇']">{item}</li>)}</ul>;
 }
 
 function EvidenceField({ label, children }: { label: string; children: string }) {
